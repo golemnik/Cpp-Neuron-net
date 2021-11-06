@@ -23,20 +23,6 @@ int main()
     M_link.matrix_all_show();
 
 
-
-
-    /*
-    Matrix a;
-
-    a.matrix_size_correct(6, 3);
-    cout << a.matrix_size_check(6, 3);
-    a.matrix_colum_size_correction(1, 4);
-    cout << "---" << endl;
-    a.matrix_size_show();
-    cout << "---" << endl;
-    a.matrix_input_num(1, 1, 1.22);
-
-    a.matrix_all_show();
-    */
+    cout << "done";
     return 0;
 }

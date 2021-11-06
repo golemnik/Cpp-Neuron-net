@@ -44,7 +44,7 @@ void Matrix::matrix_size_show() {
 string Matrix::matrix_size_check(int colum, int lay) {
     string check = "Correct";
     if (matrix.size() == colum) {
-        for (int i = 0; i < matrix.size(); i++) {
+        for (size_t i = 0; i < matrix.size(); i++) {
             if (matrix[i].size() == lay) {
 
             }
@@ -61,8 +61,8 @@ string Matrix::matrix_size_check(int colum, int lay) {
 }
 
 void Matrix::matrix_all_show() {
-    for (int i = 0; i < matrix.size(); i++) {
-        for (int j = 0; j < matrix[i].size(); j++) {
+    for (size_t i = 0; i < matrix.size(); i++) {
+        for (size_t j = 0; j < matrix[i].size(); j++) {
             cout << i << "/" << j << "   " << matrix_output_num(i, j) << endl;
         }
     }

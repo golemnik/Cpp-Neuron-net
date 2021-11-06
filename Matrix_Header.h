@@ -1,13 +1,18 @@
+#ifndef _Matrix_
+#define _Matrix_
+
+#include <vector>
+
 class Matrix
 {
 private:
-    vector <vector <double>> matrix;
+    std::vector <std::vector <double>> matrix;
 public:
     Matrix();
 
-    void set_matrix(vector <vector <double>>);
+    void set_matrix(std::vector <std::vector <double>>);
 
-    vector <vector <double>> get_matrix();
+    std::vector <std::vector <double>> get_matrix();
 
     void matrix_size_correct(int, int);
 
@@ -19,7 +24,9 @@ public:
 
     void matrix_size_show();
 
-    string matrix_size_check(int, int);
+    std::string matrix_size_check(int, int);
 
     void matrix_all_show();
 };
+
+#endif

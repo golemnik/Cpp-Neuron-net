@@ -15,8 +15,8 @@ Neuron::Neuron(int Conn_neurons_up, int Conn_neurons_down) {
 
 double Neuron::Summ_signals() {
     double signal = 0;
-    for (int i = 0; i < Up_links.size(); i++) {
-        signal = signal + Up_links[i].get_signal_to_end();
+    for (size_t i = 0; i < Up_links.size(); i++) {
+        signal = signal + Up_links[i]->get_signal_to_end();
     }
     return signal;
 }
@@ -32,10 +32,10 @@ double Neuron::mistake_func() {
     return mistake;
 }
 
-void Neuron::add_up_link(Link up_link) {
-    Up_links.push_back(up_link);
+void Neuron::add_up_link(Link& up_link) {
+    Up_links.push_back(&up_link);
 }
 
-void Neuron::add_down_link(Link down_link) {
-    Down_links.push_back(down_link);
+void Neuron::add_down_link(Link& down_link) {
+    Down_links.push_back(&down_link);
 }
