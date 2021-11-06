@@ -24,6 +24,12 @@ public:
 
     void matrix_size_show();
 
+    void matrix_write_in(int , int , double );
+
+    int matrix_Xsize();
+
+    int matrix_Ysize(int);
+
     std::string matrix_size_check(int, int);
 
     void matrix_all_show();

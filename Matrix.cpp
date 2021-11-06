@@ -41,6 +41,18 @@ void Matrix::matrix_size_show() {
     cout << matrix.size() << endl;
 }
 
+void Matrix::matrix_write_in(int colum, int lay, double num ) {
+    matrix[colum][lay] = num;
+}
+
+int Matrix::matrix_Xsize() {
+    return matrix.size();
+}
+
+int Matrix::matrix_Ysize(int colum) {
+    return matrix[colum].size();
+}
+
 string Matrix::matrix_size_check(int colum, int lay) {
     string check = "Correct";
     if (matrix.size() == colum) {
