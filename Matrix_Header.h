@@ -24,7 +24,9 @@ public:
 
     void matrix_size_show();
 
-    void matrix_write_in(int , int , double );
+    void matrix_write_in(int, int, double);
+
+    double matrix_read_out(int, int);
 
     int matrix_Xsize();
 
@@ -32,7 +34,7 @@ public:
 
     std::string matrix_size_check(int, int);
 
-    void matrix_all_show();
+    void matrix_transport(std::ostream&);
 };
 
 #endif

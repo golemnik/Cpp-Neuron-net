@@ -45,6 +45,10 @@ void Matrix::matrix_write_in(int colum, int lay, double num ) {
     matrix[colum][lay] = num;
 }
 
+double Matrix::matrix_read_out(int colum, int lay) {
+    return matrix[colum][lay];
+}
+
 int Matrix::matrix_Xsize() {
     return matrix.size();
 }
@@ -72,10 +76,12 @@ string Matrix::matrix_size_check(int colum, int lay) {
     return check;
 }
 
-void Matrix::matrix_all_show() {
+void Matrix::matrix_transport(ostream& output) {
+    output << matrix.size() << endl;
     for (size_t i = 0; i < matrix.size(); i++) {
         for (size_t j = 0; j < matrix[i].size(); j++) {
-            cout << i << "/" << j << "   " << matrix_output_num(i, j) << endl;
+            output << matrix_output_num(i, j) << " ";
         }
+        output << endl;
     }
 }

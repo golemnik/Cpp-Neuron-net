@@ -12,11 +12,15 @@ private:
 public:
     Neuron(int, int);
 
-    double Summ_signals();
+    Neuron();
 
-    double Activ_func();
+    double Summ_signals_to_end(double);
 
-    double mistake_func();
+    double Activ_func(double);
+
+    double Summ_signals_to_beg(double);
+
+    double mistake_func(double);
 
     void add_up_link(Link&);
 
