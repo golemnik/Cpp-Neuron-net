@@ -30,10 +30,6 @@ void TEST_2_neuron() {
     cout << ner.Get_output_mistake() << endl;
 }
 
-void TEST_2_neuron() {
-
-}
-
 int main()
 {
     srand(time(0)); //1 + rand() % 10
