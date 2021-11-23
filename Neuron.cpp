@@ -18,18 +18,49 @@ Neuron::Neuron() {
     Down_links.resize(0);
 }
 
-double Neuron::Summ_signals_to_end(double signal) {
+// - - - - - -
+
+double Neuron::Summ_input_signals_from_UpLinks() {
     for (size_t i = 0; i < Up_links.size(); i++) {
-        signal = signal + Up_links[i]->get_signal_to_end();
+        input_signal = input_signal + Up_links[i]->get_signal_to_end();
     }
-    return signal;
+    return input_signal;
 }
 
-double Neuron::Activ_func(double input) {
-    double func = Summ_signals_to_end(input);
-    func = 1.0 / (1.0 + exp(-func));
-    return func;
+double Neuron::Set_input_signal(double input) {
+    return input_signal = input;
 }
+
+double Neuron::Activ_func() {
+    return output_signal = Active_func_vard(input_signal);
+}
+
+double Neuron::Get_output_signal() {
+    return output_signal;
+}
+
+// - - - - - -
+
+double Neuron::Active_func_vard(double input) {
+    return 1.0 / (1.0 + exp(-input));
+}
+
+// - - - - - - 
+
+double Neuron::Mistake_func() {
+    output_mistake = Active_func_vard(input_mistake)*(1 - Active_func_vard(input_mistake));
+    return output_mistake;
+}
+
+double Neuron::Set_unput_mistake(double input) {
+    return input_mistake = input;
+}
+
+double Neuron::Get_output_mistake() {
+    return output_mistake;
+}
+
+// - - - - - -
 
 double Neuron::Summ_signals_to_beg(double signal) {
     for (size_t i = 0; i < Down_links.size(); i++) {
@@ -38,11 +69,7 @@ double Neuron::Summ_signals_to_beg(double signal) {
     return signal;
 }
 
-double Neuron::mistake_func(double input) {
-    double func = Summ_signals_to_beg(input);
-    double mistake = 1.0 - (1.0 / (1.0 + exp(-func)));
-    return mistake;
-}
+
 
 void Neuron::add_up_link(Link& up_link) {
     Up_links.push_back(&up_link);
