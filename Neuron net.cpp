@@ -12,6 +12,28 @@
 
 using namespace std;
 
+void TEST_1_neuron() {
+    Neuron ner;
+    double signal = 12.3;
+
+    ner.Set_input_signal(signal);
+    ner.Activ_func();
+    cout << ner.Get_output_signal() << endl;
+}
+
+void TEST_2_neuron() {
+    Neuron ner;
+    double signal = 12.3;
+
+    ner.Set_unput_mistake(signal);
+    ner.Mistake_func();
+    cout << ner.Get_output_mistake() << endl;
+}
+
+void TEST_2_neuron() {
+
+}
+
 int main()
 {
     srand(time(0)); //1 + rand() % 10
@@ -20,12 +42,9 @@ int main()
 
     string file_name = "text.txt";
 
-    Neuron ner;
-    double signal = 12.3;
+    TEST_1_neuron();
+    TEST_2_neuron();
 
-    cout << ner.Activ_func(signal) << endl;
-
-        
     cout << "done";
     return 0;
 }
