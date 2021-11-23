@@ -141,13 +141,18 @@
   <ItemGroup>
     <ClCompile Include="Link.cpp" />
     <ClCompile Include="Matrix.cpp" />
+    <ClCompile Include="MatrixUtility.cpp" />
     <ClCompile Include="Neuron net.cpp" />
     <ClCompile Include="Neuron.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Link_Header.h" />
+    <ClInclude Include="MatrixUtility_Header.h" />
     <ClInclude Include="Matrix_Header.h" />
     <ClInclude Include="Neuron_Header.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="text.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
