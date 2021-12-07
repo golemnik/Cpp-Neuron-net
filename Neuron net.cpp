@@ -6,6 +6,7 @@
 #include "Matrix_Header.h"
 #include "MatrixUtility_Header.h"
 #include "Neuron_Header.h"
+#include "Link_Header.h"
 
 #include <fstream>
 #include <sstream> // getline need it :{
@@ -14,20 +15,91 @@ using namespace std;
 
 void TEST_1_neuron() {
     Neuron ner;
-    double signal = 12.3;
+    double signal = 0.3;
 
-    ner.Set_input_signal(signal);
+    ner.Set_signal(signal);
     ner.Activ_func();
     cout << ner.Get_output_signal() << endl;
 }
 
+void TEST_1__2_neuron() {
+    // test activate function from neuron
+
+    Neuron ner;
+    double signal = 0;
+
+    ner.Set_signal(signal);
+    ner.Activ_func();
+
+    cout << ner.Activ_func() << endl;
+    cout << ner.Get_output_signal() << endl;
+    cout << "- - - - -" << endl;
+    cout << exp(-signal) << endl;
+    cout << 1.0 + exp(-signal) << endl;
+    cout << 1.0 / (1.0 + exp(-signal)) << endl;
+}
+
 void TEST_2_neuron() {
     Neuron ner;
-    double signal = 12.3;
+    double signal = 0.3;
 
-    ner.Set_unput_mistake(signal);
+    ner.Set_mistake(signal);
     ner.Mistake_func();
     cout << ner.Get_output_mistake() << endl;
+}
+
+void TEST_3_neuron() {
+    double signal = 0.9;
+    
+    Neuron ner1, ner2;
+    Link link(ner1, ner2);
+    link.set_weight(0.3);
+
+    ner1.Set_signal(signal);
+    ner1.Activ_func();
+    cout << ner1.Get_output_signal() << endl;
+    ner2.Summ_signals_from_UpLinks();
+    cout << ner2.Get_signal() << endl;
+    ner2.Activ_func();
+    cout << ner2.Get_output_signal() << endl;
+
+}
+
+void TEST_4_neuron() {
+    double signal = 0.9;
+
+    Neuron ner1, ner2;
+    Link link(ner1, ner2);
+    link.set_weight(0.3);
+
+    ner2.Set_mistake(signal);
+    cout << ner2.Get_mistake() << endl;
+    ner2.Mistake_func();
+    cout << ner2.Get_output_mistake() << endl;
+
+    ner1.Summ_signals_from_DownLinks();
+    cout << ner1.Get_mistake() << endl;
+    ner1.Mistake_func();
+    cout << ner1.Get_output_mistake() << endl;
+
+}
+
+void TEST_4__2_neuron() {
+    double signal = 0.0616501;
+
+    Neuron ner;
+
+    ner.Set_mistake(signal);
+    cout << ner.Get_mistake() << endl;
+    ner.Mistake_func();
+    cout << ner.Get_output_mistake() << endl;
+    cout << "- - - - -" << endl;
+    cout << exp(-signal) << endl;
+    cout << 1.0 + exp(-signal) << endl;
+    cout << 1.0 / (1.0 + exp(-signal)) << endl;
+    cout << 1 - (1.0 / (1.0 + exp(-signal))) << endl;
+    cout << (1.0 / (1.0 + exp(-signal))) * (1 - (1.0 / (1.0 + exp(-signal)))) << endl;
+
 }
 
 int main()
@@ -38,8 +110,7 @@ int main()
 
     string file_name = "text.txt";
 
-    TEST_1_neuron();
-    TEST_2_neuron();
+    TEST_4__2_neuron();
 
     cout << "done";
     return 0;
