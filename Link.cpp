@@ -42,6 +42,10 @@ void Link::set_weight(double new_weight) {
     weight = new_weight;
 }
 
+double Link::Get_weight() {
+    return weight;
+}
+
 double Link::Get_input_signal() {
     return input_signal;
 }

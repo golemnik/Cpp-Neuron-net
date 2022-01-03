@@ -62,25 +62,33 @@ void TEST_3_neuron() {
     cout << ner2.Get_signal() << endl;
     ner2.Activ_func();
     cout << ner2.Get_output_signal() << endl;
-
 }
 
 void TEST_4_neuron() {
     double signal = 0.9;
+    double predicted_result = 0.3;
+    double Edict_norm = 0.0001;
+    double result;
 
     Neuron ner1, ner2;
     Link link(ner1, ner2);
     link.set_weight(0.3);
 
-    ner2.Set_mistake(signal);
-    cout << ner2.Get_mistake() << endl;
-    ner2.Mistake_func();
-    cout << ner2.Get_output_mistake() << endl;
+    ner1.Set_signal(signal);
+    ner1.Activ_func();
+    ner2.Summ_signals_from_UpLinks();
+    ner2.Activ_func();
 
+    cout << link.Get_weight() << endl;
+
+    result = ner2.Get_output_signal();
+    ner2.Set_mistake(predicted_result - result);
+    ner2.Mistake_func();
     ner1.Summ_signals_from_DownLinks();
-    cout << ner1.Get_mistake() << endl;
+    link.set_weight(link.Get_weight() + Edict_norm * ner1.Get_output_signal() * result);
     ner1.Mistake_func();
-    cout << ner1.Get_output_mistake() << endl;
+
+    cout << link.Get_weight() << endl;
 
 }
 
@@ -110,7 +118,7 @@ int main()
 
     string file_name = "text.txt";
 
-    TEST_4__2_neuron();
+    TEST_4_neuron();
 
     cout << "done";
     return 0;

@@ -27,6 +27,8 @@ public:
 
     void set_weight(double);
 
+    double Get_weight();
+
     void Set_input_neuron(Neuron& new_input_neuron);
 
     void Set_output_neuron(Neuron& new_output_neuron);

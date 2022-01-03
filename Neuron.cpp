@@ -80,6 +80,7 @@ double Neuron::Get_output_mistake() {
 }
 
 void Neuron::Summ_signals_from_DownLinks() {
+    mistake = 0;
     for (int i = 0; i < Down_links.size(); i++) {
         Down_links[i]->Disactivate_link_Ner2Ner();
         mistake = mistake + input_mistake;
