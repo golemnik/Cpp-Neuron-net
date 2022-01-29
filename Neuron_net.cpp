@@ -50,7 +50,7 @@ void TEST_2_neuron() {
 
 void TEST_3_neuron() {
     double signal = 0.9;
-    
+
     Neuron ner1, ner2;
     Link link(ner1, ner2);
     link.set_weight(0.3);
@@ -110,7 +110,7 @@ void TEST_4__2_neuron() {
 
 }
 
-int main()
+extern "C" int main()
 {
     srand(time(0)); //1 + rand() % 10
 
