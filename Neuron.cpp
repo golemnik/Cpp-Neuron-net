@@ -8,10 +8,11 @@
 using namespace std;
 
 double Neuron::Active_func_vard(double input) {
-    return 1.0 / (1.0 + exp(-input));
+    double ret = 1.0 / (1.0 + exp(-input));
+	std::cout <<"active: ret=" <<ret <<" inp=" <<input << std::endl;
 }
 
-// - - - - - - 
+// - - - - - -
 
 Neuron::Neuron(int Conn_neurons_up, int Conn_neurons_down) {
     Up_links.resize(Conn_neurons_up); // amount of neurons in previos lay connected to this one -> Conn_neurons

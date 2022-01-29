@@ -7,6 +7,7 @@
 #include "MatrixUtility_Header.h"
 #include "Neuron_Header.h"
 #include "Link_Header.h"
+#include "TestOriginal.h"
 
 #include <fstream>
 #include <sstream> // getline need it :{
@@ -50,7 +51,7 @@ void TEST_2_neuron() {
 
 void TEST_3_neuron() {
     double signal = 0.9;
-    
+
     Neuron ner1, ner2;
     Link link(ner1, ner2);
     link.set_weight(0.3);
@@ -110,7 +111,15 @@ void TEST_4__2_neuron() {
 
 }
 
-int main()
+std::string okOrFailed(bool ok) {
+	if (ok) {
+		return "Ok";
+	} else {
+		return "FAILED";
+	}
+}
+
+extern "C" int main()
 {
     srand(time(0)); //1 + rand() % 10
 
@@ -119,6 +128,9 @@ int main()
     string file_name = "text.txt";
 
     TEST_4_neuron();
+
+	TestOriginal t;
+	std::cout <<"TestOriginal: "  <<okOrFailed( t.isOk() ) <<std::endl;
 
     cout << "done";
     return 0;
