@@ -7,14 +7,14 @@ using namespace std;
 
 
 Matrix::Matrix() {
-    vector <vector <double>> matrix_data[1][1];
+    vector <vector <double> > matrix_data[1][1];
 }
 
-void Matrix::set_matrix(vector <vector <double>> matrix_data) {
+void Matrix::set_matrix(vector <vector <double> > matrix_data) {
     matrix = matrix_data;
 }
 
-vector <vector <double>> Matrix::get_matrix() {
+vector <vector <double> > Matrix::get_matrix() {
     return matrix;
 }
 

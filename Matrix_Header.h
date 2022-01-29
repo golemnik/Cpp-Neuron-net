@@ -6,13 +6,13 @@
 class Matrix
 {
 private:
-    std::vector <std::vector <double>> matrix;
+    std::vector <std::vector <double> > matrix;
 public:
     Matrix();
 
-    void set_matrix(std::vector <std::vector <double>>);
+    void set_matrix(std::vector <std::vector <double> >);
 
-    std::vector <std::vector <double>> get_matrix();
+    std::vector <std::vector <double> > get_matrix();
 
     void matrix_size_correct(int, int);
 
